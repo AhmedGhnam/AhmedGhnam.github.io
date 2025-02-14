@@ -1,0 +1,67 @@
+/* Start overall */
+
+body {
+    height: 1000px;
+    font-family: 'Neo Sans Arabic', sans-serif;
+    font-family: 'Neo Sans', sans-serif;
+
+}
+
+
+/* End overall */
+
+
+/* Start Navbar */
+
+.navbar-star {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.navbar-star .navbar-brand {
+    color: #FFF;
+    padding: 0;
+}
+
+.navbar-star .navbar-brand img {
+    display: inline-block;
+    width: 120px;
+}
+
+.navbar-star .navbar-nav .nav-item .nav-link {
+    font-size: 20px;
+    color: #FFF;
+    text-align: right;
+    transition: .5s all ease-in-out;
+}
+
+
+
+.navbar-toggler {
+    background-color: #f8dd24;
+    padding: 3px 4px;
+}
+
+@media (min-width: 10px) and (max-width: 991px) {
+    .navbar-star .navbar-nav .nav-item .nav-link:hover {
+        padding-right: 7px;
+    }
+}
+
+/* End Navbar */
+
+/* Start Footer */
+
+footer {
+    background-color: #ebebeb;
+    color: #6a6969;
+    padding: 12px;
+}
+
+/* End Footer */
+
+/* Start Main */
+
+
+
+/* End Main */
