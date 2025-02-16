@@ -1,13 +1,10 @@
 <?php 
 
-    
+    include('init.php');
+    include($tpl . 'header.php');
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-    <?php include('templates/header.php'); ?>
     
     <div class="">
         <ul class="adel">
