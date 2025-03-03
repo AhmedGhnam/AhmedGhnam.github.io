@@ -1,0 +1,161 @@
+/* Start overall */
+
+body {
+    /* font-family: 'Neo Sans Arabic', sans-serif;
+    font-family: 'Neo Sans', sans-serif; */
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    background-size: contain;
+    /* height: 1000px; */
+}
+
+.category-holder {
+    width: 90vw;
+    background-color: #ea0702;
+    height: 50px;
+    border-radius: 18px;
+    position: fixed;
+    top: 53px;
+    right: 5vw;
+    font-weight: 500;
+    z-index: 2;
+}
+
+.adel li {
+    display: inline-block;
+    margin : 5px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 2px;
+    text-align: center;
+}
+
+/* End overall */
+
+
+/* Start Navbar */
+
+.navbar-star {
+    padding-top: 0;
+    padding-bottom: 20px;
+    z-index: 1;
+}
+
+.navbar-star.employees {
+    padding-bottom: 0;
+}
+
+.navbar-star .navbar-brand {
+    color: #FFF;
+    padding: 0;
+}
+
+.navbar-star .navbar-brand img {
+    display: inline-block;
+    width: 120px;
+}
+
+.navbar-star .navbar-nav .nav-item .nav-link {
+    font-size: 16px;
+    color: #FFF;
+    font-weight: 500;
+    transition: .5s all ease-in-out;
+}
+
+.navbar-toggler {
+    background-color: #f8dd24;
+    padding: 3px 4px;
+}
+
+@media (min-width: 10px) and (max-width: 991px) {
+    
+    body{
+        background-position: top center;
+    }
+
+    .navbar-star .navbar-nav .nav-item .nav-link:hover {
+        padding-right: 7px;
+    }
+
+}
+
+/* End Navbar */
+
+/* Start employees */
+
+.form-container {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.form-container form {
+    max-width: 380px;
+    background: rgb(0,0,0);
+    background:  linear-gradient(300deg, rgba(0,0,0,0.1) 0%, rgba(115,115,115,0.4) 83%);
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.form-container h1 {
+    margin-bottom: 20px;
+    color: #cbcbcb;
+    font-weight: 600;
+}
+
+.form-container h1 span {
+    cursor: pointer;
+}
+
+.form-container .s.selected {
+    color: #198754;
+}
+
+.form-container .l.selected {
+    color: #0d6efd;
+}
+
+.form-container .form-group .form-control {
+    margin-bottom: 20px;
+
+}
+
+.code-form .form-group .form-control::placeholder {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.form-container form input[type="submit"] {
+    width: 100%;
+    font-weight: 500;
+}
+
+.form-container .signUp {
+    display: none;
+}
+
+/* End employees */
+
+/* Start Footer */
+
+footer {
+    background-color: #ebebeb;
+    color: #6a6969;
+    padding: 12px;
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+footer .copy {
+    font-size: 16px;
+}
+/* End Footer */
+
+/* Start Main */
+
+
+
+/* End Main */
