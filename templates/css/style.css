@@ -8,6 +8,7 @@ body {
     /* height: 1000px; */
 }
 
+
 .category-holder {
     width: 90vw;
     background-color: #ea0702;
@@ -67,6 +68,26 @@ body {
     padding: 3px 4px;
 }
 
+.navbar-star .dropdown-menu {
+    background-color: #212529;
+}
+
+.navbar-star .dropdown-menu .dropdown-item, .navbar-star .dropdown-menu .nav-link {
+    transition: all .3s ease-in-out;
+}
+
+.navbar-star .dropdown-menu .dropdown-item, .navbar-star .dropdown-menu .nav-link {
+    color: #fff;
+    padding-right: 15px;
+}
+
+.navbar-star .dropdown-menu .dropdown-item:hover, .navbar-star .dropdown-menu .nav-link:hover {
+    color: #212529;
+    padding-right: 20px;
+    background-color: #fff;
+}
+
+
 @media (min-width: 10px) and (max-width: 991px) {
     
     body{
@@ -98,10 +119,18 @@ body {
 }
 
 .form-container h1 {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     color: #cbcbcb;
     font-weight: 600;
 }
+
+@media (min-width: 10px) and (max-width: 400px) {
+    
+    .form-container h1 {
+        font-size: 1.5rem;
+    }
+}
+
 
 .form-container h1 span {
     cursor: pointer;
@@ -152,6 +181,20 @@ footer {
 footer .copy {
     font-size: 16px;
 }
+
+@media (min-width: 10px) and (max-width: 576px) {
+    
+    footer {
+        font-size: 11px;
+    }
+
+    footer .copy {
+        font-size: 12px;
+    }
+
+}
+
+
 /* End Footer */
 
 /* Start Main */
@@ -159,3 +202,64 @@ footer .copy {
 
 
 /* End Main */
+
+/* Start Selectbox design */
+
+.selectboxit-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.selectboxit-container .selectboxit {
+    width: 100%;
+    padding: 5px 12px;
+}
+
+.selectboxit-arrow-container {
+    left: 0;
+    right: unset;
+}
+
+.selectboxit-text {
+    float: right;
+    font-size: 22px;
+}
+
+.selectboxit-container > span, .selectboxit-container .selectboxit-options a {
+    height: 45px;
+    font-size: 22px;
+    background-color: #FFF;
+    text-decoration: none;
+    text-align: right;
+    padding: 5px 12px;
+    transition: all .4s ease-in-out;
+}
+
+.selectboxit-list > .selectboxit-focus > .selectboxit-option-anchor {
+    color: #ffffff;
+    background-color: #198754;
+    background-image: linear-gradient(to bottom, #198754, #1c9b60);
+    background-repeat: repeat-x;
+    text-align: right;
+    padding: 5px 12px;
+    text-decoration: none;
+    transition: all .4s ease-in-out;
+}
+
+form.login .selectboxit-list > .selectboxit-focus > .selectboxit-option-anchor {
+    background-color: #198754;
+    background-image: linear-gradient(to bottom, #198754, #1c9b60);
+}
+
+.selectboxit-container * {
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+.selectboxit-btn.selectboxit-enabled:hover,
+.selectboxit-btn.selectboxit-enabled:focus,
+.selectboxit-btn.selectboxit-enabled:active {
+  color: #333333;
+  background-color: none;
+}
+
+/* End Selectbox design */

@@ -22,6 +22,15 @@ $(document).ready(function() {
         $('.form-container form').hide();
 
         $('.' + $(this).data('class')).fadeIn(100);
+
     });
+
+    //Calls the selectBoxIt method on your HTML select box.
+        
+    $("select").selectBoxIt({
+        autoWidth: false
+    });
+
+    
 
 });

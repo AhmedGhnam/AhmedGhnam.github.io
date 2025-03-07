@@ -1,4 +1,6 @@
 <?php 
+    ob_start();
+    session_start();
 
     include('init.php');
     include($lay . 'header.php');
@@ -23,6 +25,9 @@
     
     
     
-    <?php include( $lay . 'footer.php'); ?>
+    <?php 
+        include( $lay . 'footer.php'); 
+        ob_end_flush();
+    ?>
 
 </html>

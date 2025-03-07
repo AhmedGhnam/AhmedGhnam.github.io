@@ -1,13 +1,50 @@
 <?php
+    ob_start();
+    session_start();
 
-// $noNavbar = "";
-// $noFooter = "";
     include('init.php');
-
     include ( $lay . 'header.php');
 
-    if($_SERVER['REQUEST_METHOD'] == 'GET') {
+$noNavbar = "";
+// $noFooter = "";
+    if(isset($_SESSION['UserName'])) {
+        // header('Location : index.php');
+
+    } else {
+
+    
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+        $username = $_POST['loginName'];
+        $password = $_POST['loginPass'];
         
+        $stmt = $starCon->prepare('SELECT
+                                                UserName, ID, PassWord, GroupId
+                                            FROM
+                                                users 
+                                            WHERE
+                                                UserName = ? 
+                                            AND PassWord = ?
+                                            AND GroupId = 0
+                                            LIMIT 1');
+        $stmt->execute(array($username, $password));
+        $count = $stmt->rowCount();
+
+
+        if($count > 0) {
+            $_SESSION['UserName'] = $username;
+            $_SESSION['PassWord']   = $password;
+            header('Location: index.php');
+            exit();
+        }          
+
+
+
+    }
+
+    $stmt2 = $starCon->prepare('SELECT * FROM users');
+    $stmt2->execute();
+    $users = $stmt2->fetchAll();
 
 ?>
 <div class="employees-form">
@@ -20,7 +57,19 @@
                 </h1>
                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" class="login" method="POST">
                     <div class="form-group">
-                        <input type="text" class="form-control form-control-lg" name="loginName" placeholder="الاسم" autocomplete="off">
+                        <select name="loginName">
+                            <?php 
+                            foreach($users as $user) {
+                                if($user['SignStatus'] == 1) {
+                                    echo '<option value=\'';
+                                        if($user['SignStatus'] == 1) {echo $user['UserName'];}
+                                        echo '\'>'; 
+                                        if($user['SignStatus'] == 1) {echo $user['UserName'];}
+                                    echo '</option>';
+                                }
+                            }
+                            ?>
+                        </select> 
                     </div>
                     <div class="form-group">
                         <input type="password" class="form-control form-control-lg" name="loginPass" placeholder="كلمة السر" autocomplete="new-password">
@@ -29,13 +78,25 @@
                 </form>
                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" class="signUp" method="POST">
                     <div class="form-group">
-                        <input type="text" class="form-control form-control-lg" name="signupName" placeholder="الاسم" autocomplete="off">
+                        <select name="signupName">
+                            <?php 
+                                foreach($users as $user) {
+                                    if($user['SignStatus'] == 0) {
+                                        echo '<option value=\'';
+                                            if($user['SignStatus'] == 0) {echo $user['UserName'];}
+                                            echo '\'>'; 
+                                            if($user['SignStatus'] == 0) {echo $user['UserName'];}
+                                        echo '</option>';
+                                    }
+                                }
+                            ?>
+                        </select>
                     </div>
                     <div class="form-group">
                         <input type="password" class="form-control form-control-lg" name="signupPass" placeholder="كلمة السر" autocomplete="new-password">
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control form-control-lg" name="signupPass" placeholder=" تأكيد كلمة السر" autocomplete="new-password">
+                        <input type="password" class="form-control form-control-lg" name="signupPass" placeholder="كلمة السر الجديدة" autocomplete="new-password">
                     </div>
                     <input type="submit" class="btn btn-success btn-lg btn-block" value="انشاء حساب">
                 </form>
@@ -43,9 +104,12 @@
         </div>
     </div>
 </div>
-<?php  } ?>
 
 
 
 
-<?php include( $lay . 'footer.php') ?>
+<?php
+    }
+    include( $lay . 'footer.php');
+    ob_end_flush(); 
+?>
