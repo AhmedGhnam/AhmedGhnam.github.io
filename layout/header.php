@@ -28,9 +28,11 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="index.php">الصفحة الرئيسية</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="employees.php">العاملين</a>
-                </li>
+                <?php if(!isset($_SESSION['UserName'])) { ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="employees.php">العاملين</a>
+                    </li>
+                <?php } ?>
         <?php if(isset($_SESSION['UserName'])) { ?>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

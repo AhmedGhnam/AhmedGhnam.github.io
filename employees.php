@@ -7,8 +7,9 @@
 
 $noNavbar = "";
 // $noFooter = "";
-    if(isset($_SESSION['UserName'])) {
+    if(isset($_SESSION['UserName']) && $_SESSION['GroupId'] == 1) {
         // header('Location : index.php');
+        echo 'U Are Admin';
 
     } else {
 
@@ -25,15 +26,17 @@ $noNavbar = "";
                                             WHERE
                                                 UserName = ? 
                                             AND PassWord = ?
-                                            AND GroupId = 0
                                             LIMIT 1');
         $stmt->execute(array($username, $password));
         $count = $stmt->rowCount();
+        $row   = $stmt->fetch();
+        echo $row['GroupId'];
 
 
         if($count > 0) {
             $_SESSION['UserName'] = $username;
-            $_SESSION['PassWord']   = $password;
+            $_SESSION['PassWord'] = $password;
+            $_SESSION['GroupId']  = $row['GroupId'];
             header('Location: index.php');
             exit();
         }          
